@@ -1,0 +1,41 @@
+abstract
+abstract are non body class where we have abstract modifier which will apply onto the classess and the method only and if we use abstract on classess so we can't create te object of tat class instead we just
+have to call the child method of that classes
+  The Golden Rule: You cannot buy a blueprint; you have to build the house.
+  In Java terms: You cannot create an object (new) of an Abstract Class. You can only create objects of the child classes that "fill in the blanks."
+ abstract are use to sharing code not for contract
+  abstract are use for this think
+                                  common validation
+                                  logging
+                                  transaction tracking
+                                  helper methods
+                                  shared fields
+                                  some default behavior
+
+
+  .
+
+🧠 SO WHEN TO USE WHAT?
+✔ Use INTERFACE when:
+
+You only need a contract
+
+There is no shared code
+
+You want DI / loose coupling
+
+You need multiple inheritance
+
+You’re defining capabilities (Runnable, Comparable, etc.)
+
+✔ Use ABSTRACT CLASS when:
+
+You want to share code among related classes
+
+You want fields (state)
+
+You want constructors
+
+You want default behavior that subclasses can extend
+
+You want a “base class” that all child classes follow

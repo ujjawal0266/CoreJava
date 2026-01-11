@@ -1,0 +1,67 @@
+data hiding mean hide the internall data of the class from other class so taht no one can get direct access
+they can acess through the some method like getter or setter jjust use private access modifier to do block access from other class
+we haven't have thread safaty so we have to use Synchronization on the method
+and also wthout private we don't have pure data hiding
+ if we don't provide any setter so that object will called immutable object because it will fix by created adn don't change
+ itself forever unitil it diea same as strng we create it and it never change unitil we reassign another String object with the same
+
+Best Practices (Industrial)
+
+✔ Always keep variables private
+Even if you think exposing them is “easy.”
+
+✔ Validate inputs inside setters
+Never trust user data.
+
+✔ Prefer immutability for value objects
+Fewer bugs, safer in multithreading.
+ ....................
+✔ Don’t expose internal collections directly
+
+
+| Exception                      | Meaning                                 |
+| ------------------------------ | --------------------------------------- |
+| `IllegalArgumentException`     | Wrong argument value                    |
+| `IllegalStateException`        | Method called in wrong object state     |
+| `IllegalThreadStateException`  | Invalid thread operation                |
+| `IllegalMonitorStateException` | Using wait/notify without lock          |
+| `IllegalAccessException`       | Reflection illegal access               |
+| `IllegalAccessError`           | Runtime access violation                |
+| `IllegalCallerException`       | Method called from wrong caller context |
+| `IllegalFormatException`       | Bad format string                       |
+
+STAGE 1 (DONE)
+
+✔ private fields
+✔ getters/setters
+✔ immutability
+✔ thread-safe counters
+
+STAGE 2 (NEXT WEEK)
+
+⬜ Encapsulation vs Information Hiding
+⬜ Law of Demeter
+⬜ Tell, Don’t Ask
+⬜ Effective Java Item 15, 16, 17
+
+STAGE 3 (NEXT MONTH)
+
+⬜ Builder / Factory Patterns
+⬜ Object creation hiding
+⬜ Domain-Driven Design rules
+⬜ Value objects + Aggregates
+
+STAGE 4 (ADVANCED)
+
+⬜ Reflection security
+⬜ Serialization hiding
+⬜ Module-level hiding
+⬜ API boundary hiding
+
+STAGE 5 (MASTER LEVEL)
+
+⬜ Designing frameworks
+⬜ Designing libraries
+⬜ Designing safe APIs
+⬜ Reading JVM bytecode
+⬜ Writing ultra-clean architecture code

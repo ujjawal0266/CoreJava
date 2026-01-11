@@ -1,0 +1,60 @@
+interface act like small contract  adn it was the pure abstraction(8 version)
+it has no body just simply declaration and it does has by default public abstract on the each method
+and public static final on each variable and
+it solve the diamond promblem on teh inheritence where we have 2 class with the same method name (this will create the ambiguty promblem where class do not know
+which mehtod to use ) and then we use inheritence where just declaration no code so it create there own code inside the method
+it just declaration no code
+
+Your class depends on an INTERFACE, not an IMPLEMENTATION
+where we use interface  as the variable and then just use the constructure tounderstnad the constructure injection if you need to understn the interface ok
+ get the object of the child ans that called palindrome where we use overriding support to get compiler check check which method to call
+  way to use interface in java
+  #1 Loose Coupling (take interface as variable and there object as the constructure injection and call to the child class method code )
+  #2 The API Standard
+  #3 Multiple "Capabilities" (The Tagging Logic) {Classes in Java can only have one parent (Inheritance), but they can play many roles.The Concept: A SmartPhone is a gadget. But it also acts as a Camera (takes photos)
+                                                  MusicPlayer (plays audio)
+                                                  GPS (navigates)
+                                                  If you us+                       vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvved classes, you'd be stuck. You can't say class SmartPhone extends Camera, MusicPlayer. With interfaces, you assign roles.
+                                                  Code Example:
+                                                  Java
+                                                  class SmartPhone implements Camera, MusicPlayer, GPS {
+                                                      // Implements logic for all three...
+                                                  }
+                                                  // Now I can treat the phone purely as a Camera
+                                                  Camera myCam = new SmartPhone();
+                                                  myCam.takePhoto();
+                                                  // myCam.playMusic(); // ERROR}
+
+
+| Feature             | Allowed? | Deep Purpose                           |
+| ------------------- | -------- | -------------------------------------- |
+| Abstract Methods    | ✔️       | Contract                               |
+| Default Methods     | ✔️       | Add behavior without breaking old code |
+| Static Methods      | ✔️       | Utilities                              |
+| Private Methods     | ✔️       | Reusable internal code                 |
+| Cobnstants           | ✔️       | Shared values                          |
+| Nested Interface    | ✔️       | Group contracts                        |
+| Nested Static Class | ✔️       | Helper classes                         |
+| Nested Enum         | ✔️       | Related constants                      |
+| Nested Record       | ✔️       | Data structure                         |
+| Constructors        | ❌        | No object creation                     |
+| Instance Variables  | ❌        | Interfaces are not objects             |
+| Static Blocks       | ❌        | No initialization logic                |
+
+ 4 types of the  interface is in there java
+
+ | Type of Interface     | Methods inside?                       | Purpose                                     |
+| --------------------- | ------------------------------------- | -------------------------------------------- |
+| **SAM / Functional**  | 1 abstract                            | Lambda, functional programming               |
+| **Marker**            | None                                  | Inform JVM or framework for special behavior |
+| **Normal / Contract** | Many abstract                         | Enforce behavior rules                       |
+| **Hybrid Interface**  | Abstract + default + static + private | Modern reusable behavior                     |
+ bonus we use another types of the interface called gneeral + makerk interface ( due to that mf we have to override the writer method in the singleton classess )
+    public interface hello implement Serialization{
+        void sayHello();
+    }
+
+
+Ambiguity solve the diamond problem and also it use to as an contract between the implementated classess if some class just dont' wnat to implmet taht full method so in taht time that class must be abstract other wise we get the cte ok
+
+
