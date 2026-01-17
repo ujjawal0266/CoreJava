@@ -9,7 +9,7 @@ public class Delete implements FileManipulation{
         File fs=new File(Path);
         if(fs.isFile()){
             fs.delete();
-            System.out.println("deleted = "+fs.getName());
+            System.out.println("deleted = "+fs.getName()); 
         }
         else{
             File[] ss=fs.listFiles();

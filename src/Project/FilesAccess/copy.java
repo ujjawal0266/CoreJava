@@ -23,7 +23,7 @@ public class copy implements FileManipulation
         boolean sTemp=sfileOrDesName.indexOf('.')==-1; // if true so it mean directory
         boolean dTemp=dfileOrDesName.indexOf('.')==-1; // if true so it mean directory
         if(sTemp==dTemp){
-            if(sTemp){
+            if(sTemp==true){
                 // both are directory
                 DirectoryCopy(new File(SourceFilePath),new File(destinationFilePath));
             }
@@ -37,10 +37,15 @@ public class copy implements FileManipulation
             }
         }
         else if(sTemp==false&&dTemp){
+            // source is file but destination is folder so
+            // first create the file copy.txt on destination and then save
+            // copy all think from source ffile to desintion copy.txt file ok
+
             File fs1=new File(destinationFilePath);
             if(!fs1.exists()){
                 fs1.mkdir();
             }
+
             fs1=new File(destinationFilePath+"/copy.txt");
             try {
                 fs1.createNewFile();
@@ -54,12 +59,46 @@ public class copy implements FileManipulation
             }
         }
         else{
-            throw new IllegalArgumentException(" file and direcotyr not same ");
+            // throw new IllegalArgumentException(" file and direcotyr not same ");
+            System.out.println("file or directory not same ");
         }
     }
+
+    // cp -r
     private void DirectoryCopy(File fs,File fd){
         // if direcoty is ther eso dont run this ok
+        // behaviour goes like this
+        /* if destination does not exist
+             -- it created the destination folder
+             -- it copies the contents fo the source folder into the new destination folder
+         * if Destination Does exist
+             -- it copies the entire source folder inside the destination folder
+        * */
+
+        File[] flist=fs.listFiles();
+        if(flist==null){
+            return;
+        }
+        for(File source:flist){
+            var destination =new File(fd.getAbsolutePath()+"/"+source.getName());
+            if(source.isDirectory()){
+                destination.mkdir();
+                DirectoryCopy(source,destination);
+            }
+            else if(source.isFile()){
+                try {
+                    destination.createNewFile();
+                    // and now we have to fill all source file data on teh destination file ok
+                    this.FilesTransfer(destination,new FileReader(source));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
     }
+
+
     private void DirectoryToFile(String SourceFilePath,File fd) throws IOException {
         PrintWriter pw=new PrintWriter(fd);
         BufferedReader br=new BufferedReader(new FileReader(SourceFilePath));
@@ -80,7 +119,7 @@ public class copy implements FileManipulation
             while((temp=bf.readLine())!=null){
                 pw.println(temp);
             }
-
+            pw.flush();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -88,6 +127,7 @@ public class copy implements FileManipulation
         }
         finally {
             bf.close();
+
         }
     }
 }
