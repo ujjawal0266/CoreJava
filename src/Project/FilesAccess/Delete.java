@@ -13,6 +13,10 @@ public class Delete implements FileManipulation{
         }
         else{
             File[] ss=fs.listFiles();
+            if(ss==null){
+               fs.delete();
+                return;
+            };
             for(File s1:ss){
                 if(s1.isFile()){
                     s1.delete();

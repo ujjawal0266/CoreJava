@@ -42,7 +42,7 @@ public class main {
             System.out.println();
         }
     }
-    public void ProecessCommand(String[] TokenedCommand,String currentLocation) throws InterruptedException {
+    public void ProecessCommand(String[] TokenedCommand,String currentLocation) throws InterruptedException, IOException {
         String temp=TokenedCommand[0];
         File cL=new File(currentLocation);
         FileManipulation fm;
@@ -155,7 +155,8 @@ public class main {
                 break;
             }
             case "cat":{
-
+                ViewSources v=new ViewSources();
+                v.View(this.currentLocation+"/"+TokenedCommand[1]);
                 break;
             }
             case "mv":{
@@ -163,12 +164,12 @@ public class main {
                 break;
             }
             case "rm":{
-
-
+                fm=new Delete();
+                fm.Process(this.currentLocation+"/"+TokenedCommand[1],null);
                 break;
             }
             case "pwd":{
-                System.out.println(currentLocation);
+                System.out.println(this.currentLocation);
                 break;
             }
             default:

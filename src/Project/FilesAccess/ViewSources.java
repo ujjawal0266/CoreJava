@@ -3,7 +3,7 @@ package Project.FilesAccess;
 import java.io.*;
 import java.nio.Buffer;
 
-public class ViewSources {
+public class ViewSources  {
     public void View(String ss) throws IOException {
         File sss=new File(ss);
         if(sss.isFile()){

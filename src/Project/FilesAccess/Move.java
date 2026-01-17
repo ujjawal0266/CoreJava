@@ -16,6 +16,8 @@ public class Move implements FileManipulation{
         Path target=Paths.get(ProcessingPath);
         try{
             System.out.println();
+
+            System.out.println("select option :3");
             System.out.println(" 1 StandardCopyOption.ATOMIC_MOVE \n 2 StandardCopyOption.COPY_ATTRIBUTES \n 3 StandardCopyOption.REPLACE_EXISTING ");
             int temp= Integer.parseInt(IO.readln("Enter Number = "));
             CopyOption os;
@@ -26,7 +28,7 @@ public class Move implements FileManipulation{
                 break;
                 case 3: os=StandardCopyOption.REPLACE_EXISTING;
                 break;
-                default: throw new Exception("fuck you you didi fucked up ");
+                default: throw new Exception("fuck you you did fucked up ");
             }
             Files.move(source,target,os);
         } catch (IOException e) {
@@ -34,6 +36,7 @@ public class Move implements FileManipulation{
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        System.out.println();
     }
     private void manuall(String Path,String ProcessingPath){
 
